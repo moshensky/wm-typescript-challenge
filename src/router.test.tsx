@@ -37,5 +37,7 @@ test("landing on a bad page", () => {
       <Router />
     </MemoryRouter>
   );
-  expect(screen.getByText(/page not found/i)).toBeInTheDocument();
+  expect(
+    screen.getByText(/Sorry we couldn't find this page/i)
+  ).toBeInTheDocument();
 });

@@ -1,11 +1,11 @@
-import { Suspense } from "react";
+import { Suspense, ReactElement } from "react";
 import { MemoryRouter } from "react-router-dom";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
-import { Router } from "../router";
+import { Router } from "./router";
 
-const renderWithRouter = (ui, { route = "/" } = {}) => {
+const renderWithRouter = (ui: ReactElement, { route = "/" } = {}) => {
   window.history.pushState({}, "Test page", route);
 
   return {

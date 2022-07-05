@@ -27,6 +27,15 @@ test("full app rendering/navigating", async () => {
   // Check on the recipes link in the navbar
   await user.click(await screen.findByTestId(/navbar-link--recipes/));
 
-  // Check if the recipes api tekst is visible
+  // Check if the recipes api text is visible
   expect(screen.getByText("/api/recipes/all")).toBeInTheDocument();
+});
+
+test("landing on a bad page", () => {
+  render(
+    <MemoryRouter initialEntries={["/some/bad/route"]}>
+      <Router />
+    </MemoryRouter>
+  );
+  expect(screen.getByText(/page not found/i)).toBeInTheDocument();
 });

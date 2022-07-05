@@ -11,11 +11,11 @@ export const MainLayout = ({ children }: MainLayoutProps) => {
   return (
     <div className="h-full bg-pampas" data-testid="main">
       <Navbar />
-      <div className="px-8 py-6 sm:px-4">
+      <main role="main" className="px-8 py-6 sm:px-4">
         <div className="container mx-auto">
           {outlet ? <Outlet /> : children}
         </div>
-      </div>
+      </main>
     </div>
   );
 };

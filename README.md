@@ -14,6 +14,12 @@ In order to get the api endpoints working during local development, make sure yo
 REACT_APP_PUBLIC_API_MOCKING=enabled
 ```
 
+To test application with the [axe-core accessibility testing library](https://github.com/dequelabs/axe-core-npm/tree/develop/packages/react), add to your `.env` file:
+
+```
+REACT_APP_ENABLE_AXE_CORE=enabled
+```
+
 ## Available Scripts
 
 In the project directory, you can run:

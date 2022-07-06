@@ -1,4 +1,29 @@
 import { Card } from "components/card";
+import { Recipe } from "types";
+
+const spritzVeneziano: Recipe = {
+  name: "Spritz Veneziano",
+  glass: "old-fashioned",
+  category: "Sparkling Cocktail",
+  ingredients: [
+    {
+      unit: "cl",
+      amount: 6,
+      ingredient: "Prosecco",
+    },
+    {
+      unit: "cl",
+      amount: 4,
+      ingredient: "Aperol",
+    },
+    {
+      special: "Splash of Soda water",
+    },
+  ],
+  garnish: "Half an orange slice",
+  preparation:
+    "Build into an old-fashioned glass filled with ice. Top with a splash of soda water.",
+};
 
 // TODO: REMOVE THIS CODE AND IMPLEMENT A NICE GRID!
 const Homepage = () => {
@@ -15,7 +40,7 @@ const Homepage = () => {
         </p>
       </div>
       <div>
-        <Card />
+        <Card recipe={spritzVeneziano} />
       </div>
     </main>
   );

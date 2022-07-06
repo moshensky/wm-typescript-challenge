@@ -24,6 +24,7 @@
   "plugins": ["@typescript-eslint", "react", "tailwindcss", "prettier"],
   "rules": {
     "prettier/prettier": "error",
+    "react/jsx-props-no-spreading": "off",
     "react/react-in-jsx-scope": "off",
     "react/jsx-filename-extension": [
       1,
@@ -46,6 +47,7 @@
       "error",
       {
         "devDependencies": [
+          "**/*.stories.tsx", // storybook
           "test/**", // tape, common npm pattern
           "tests/**", // also common npm pattern
           "spec/**", // mocha, rspec-like pattern

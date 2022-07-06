@@ -1,9 +1,11 @@
-export type Ingredient =
-  | {
-      unit: string;
-      amount: number;
-      ingredient: string;
-    }
-  | {
-      special: string;
-    };
+export type AmountIngredient = {
+  unit: string;
+  amount: number;
+  ingredient: string;
+};
+
+export type SpecialIngredient = {
+  special: string;
+};
+
+export type Ingredient = AmountIngredient | SpecialIngredient;

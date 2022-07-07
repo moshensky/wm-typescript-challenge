@@ -1,7 +1,15 @@
 import { WarningMessage } from "components";
 
 // TODO: REMOVE THIS CODE AND IMPLEMENT A NICE GRID!
-const Recipes = () => {
+export const Recipes = () => {
+  // fetch(`/api/recipes/all?${new URLSearchParams({ offset: "70" })}`)
+  //   .then((response) => response.json())
+  //   .then(console.log);
+
+  // fetch(`/api/recipes/popular`)
+  //   .then((response) => response.json())
+  //   .then(console.log);
+
   return (
     <WarningMessage
       title={
@@ -19,5 +27,3 @@ const Recipes = () => {
     />
   );
 };
-
-export default Recipes;

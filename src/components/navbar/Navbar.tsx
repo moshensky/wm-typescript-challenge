@@ -1,7 +1,7 @@
 import { Link, NavLink } from "react-router-dom";
-import { ROUTES } from "../../router";
-
+import { ROUTES } from "router/routes";
 import { Logo } from "../logo";
+import { ColorThemeToggle } from "../color-theme-toggle/ColorThemeToggle";
 
 const navbarStyles = {
   default:
@@ -18,6 +18,8 @@ export const Navbar = () => {
           <Logo />
           <span className="sr-only">Wieni</span>
         </Link>
+
+        <ColorThemeToggle className="mr-6" />
 
         <button
           data-collapse-toggle="mobile-menu"

@@ -21,7 +21,7 @@ export const Card = ({
   recipe: { name, category, ingredients, preparation, garnish },
 }: Props) => {
   return (
-    <div className="flex border border-gray-200 bg-white/50 p-4">
+    <div className="flex border border-gray-200 bg-white/50 p-4 text-primary dark:bg-secondary">
       <div className="block space-y-2">
         <h2 className="text-2xl font-bold">{name}</h2>
         <span className="mr-1 inline-block rounded bg-pink-200 py-1 px-2 text-xs font-semibold uppercase text-pink-800 last:mr-0">

@@ -3,8 +3,10 @@ import { MemoryRouter } from "react-router-dom";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
-import { Router } from "./router";
+import { mockMatchMedia } from "hooks/useDarkMode";
+import { Router } from "./Router";
 
+mockMatchMedia();
 const renderWithRouter = (ui: ReactElement, { route = "/" } = {}) => {
   window.history.pushState({}, "Test page", route);
 

@@ -1,12 +1,7 @@
 import { Routes, Route } from "react-router-dom";
-import { MainLayout } from "./layouts/main";
-
-import { Homepage, Recipes, NotFound } from "./pages";
-
-export const ROUTES = {
-  HOME: "/",
-  RECIPES: "/recipes",
-};
+import { MainLayout } from "../layouts/main";
+import { Homepage, Recipes, NotFound } from "../pages";
+import { ROUTES } from "./routes";
 
 export const Router = () => {
   return (

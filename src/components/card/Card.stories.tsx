@@ -1,4 +1,5 @@
-import { ComponentMeta, ComponentStory } from "@storybook/react";
+import { ComponentMeta } from "@storybook/react";
+import { mkSimpleTemplateWithDarkTheme } from "test-utils";
 import { Recipe } from "types";
 import { Card } from "./Card";
 
@@ -29,10 +30,10 @@ const spritzVeneziano: Recipe = {
 export default {
   title: "components/Card",
   component: Card,
-  decorators: [(story) => <div className="bg-pampas">{story()}</div>],
+  decorators: [(story) => <div className="bg-primary">{story()}</div>],
 } as ComponentMeta<typeof Card>;
 
-const Template: ComponentStory<typeof Card> = (args) => <Card {...args} />;
+const Template = mkSimpleTemplateWithDarkTheme(Card);
 
 export const Primary = Template.bind({});
 Primary.args = {

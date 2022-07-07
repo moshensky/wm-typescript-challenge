@@ -29,6 +29,7 @@ const spritzVeneziano: Recipe = {
 export default {
   title: "components/Card",
   component: Card,
+  decorators: [(story) => <div className="bg-pampas">{story()}</div>],
 } as ComponentMeta<typeof Card>;
 
 const Template: ComponentStory<typeof Card> = (args) => <Card {...args} />;

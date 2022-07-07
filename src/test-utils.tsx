@@ -28,3 +28,15 @@ export function mkSimpleTemplate<T extends ComponentType<any>>(
   const Template: ComponentStory<T> = (args) => <Component {...args} />;
   return Template;
 }
+
+export function withViewport(
+  comp: ComponentStory<() => JSX.Element>,
+  viewport: "mobile1" | "mobile2" = "mobile1"
+): void {
+  // eslint-disable-next-line no-param-reassign
+  comp.parameters = {
+    viewport: {
+      defaultViewport: viewport,
+    },
+  };
+}

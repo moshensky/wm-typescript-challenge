@@ -35,6 +35,7 @@
     "@typescript-eslint/parser": "^5.28.0",
     "autoprefixer": "^10.4.7",
     "babel-plugin-named-exports-order": "^0.0.2",
+    "chromatic": "^6.7.0",
     "eslint": "^8.17.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-prettier": "^8.5.0",
@@ -63,7 +64,8 @@
     "tsc": "tsc --noEmit --pretty",
     "tsc:watch": "npm run tsc -- --watch",
     "storybook": "start-storybook -p 6006 -s public",
-    "build-storybook": "build-storybook -s public"
+    "build-storybook": "build-storybook -s public",
+    "chromatic": "npx chromatic --project-token=2240d0adc7b1"
   },
   "browserslist": {
     "production": [
@@ -79,5 +81,7 @@
   },
   "msw": {
     "workerDirectory": "public"
-  }
+  },
+  "readme": "ERROR: No README data found!",
+  "_id": "wieni-ts-developer@0.1.0"
 }

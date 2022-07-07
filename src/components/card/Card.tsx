@@ -30,11 +30,12 @@ export const Card = ({
 
         <h3 className="text-lg font-bold">Ingredients</h3>
         <ul className="list-inside list-disc px-1 text-sm">
-          {ingredients.map((x) => (
-            <li>
-              {isSpecialIngredient(x) ? x.special : formatAmountIngredient(x)}
-            </li>
-          ))}
+          {ingredients.map((x) => {
+            const ingredient = isSpecialIngredient(x)
+              ? x.special
+              : formatAmountIngredient(x);
+            return <li key={ingredient.replace(/\s/g, "-")}>{ingredient}</li>;
+          })}
         </ul>
 
         <h3 className="text-lg font-bold">Preparation</h3>

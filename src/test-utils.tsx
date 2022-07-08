@@ -9,8 +9,12 @@ export function mkTemplateWithDarkTheme<T extends ComponentType<any>>(
 ): ComponentStory<T> {
   const Template: ComponentStory<T> = (args, ctx) => (
     <>
-      <div className="light mb-3 bg-primary">{fn(args, ctx)}</div>
-      <div className="dark bg-primary">{fn(args, ctx)}</div>
+      <div className="light mb-3 bg-primary" data-testid="light">
+        {fn(args, ctx)}
+      </div>
+      <div className="dark bg-primary" data-testid="dark">
+        {fn(args, ctx)}
+      </div>
     </>
   );
   return Template;

@@ -29,14 +29,23 @@ export function mkSimpleTemplate<T extends ComponentType<any>>(
   return Template;
 }
 
+type Viewport = "mobile1" | "mobile2" | "tablet";
+// eslint-disable-next-line no-unused-vars
+const viewportWidth: { [Property in Viewport]: number } = {
+  mobile1: 320,
+  mobile2: 414,
+  tablet: 834,
+};
+
 export function withViewport(
   comp: ComponentStory<() => JSX.Element>,
-  viewport: "mobile1" | "mobile2" = "mobile1"
+  viewport: Viewport = "mobile1"
 ): void {
   // eslint-disable-next-line no-param-reassign
   comp.parameters = {
     viewport: {
       defaultViewport: viewport,
     },
+    chromatic: { viewports: [viewportWidth[viewport]] },
   };
 }

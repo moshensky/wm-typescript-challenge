@@ -19,10 +19,10 @@ jobs:
         run: |
           cat /etc/os-release
           node -v
-      - name: npm ci, build and test
-        run: |
-          npm ci
-          npm run build --if-present
+      - name: Install dependencies
+        run: npm ci
+      - name: Build app
+        run: npm run build --if-present
       - name: deploy to gh-pages
         uses: peaceiris/actions-gh-pages@v3
         with:

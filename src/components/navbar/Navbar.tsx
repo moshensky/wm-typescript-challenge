@@ -1,10 +1,10 @@
 import cx from "clsx";
 import { Link, NavLink } from "react-router-dom";
 import { ROUTES } from "router/routes";
-import { HamburgerButton } from "components/hamburger-button";
 import { useState } from "react";
+import { HamburgerButton } from "../hamburger-button/HamburgerButton";
 import { Logo } from "../logo";
-import { ColorThemeToggle } from "../color-theme-toggle/ColorThemeToggle";
+import { ColorThemeToggle } from "../color-theme-toggle";
 
 const navbarStyles = {
   default:

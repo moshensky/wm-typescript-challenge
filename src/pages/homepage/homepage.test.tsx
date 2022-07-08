@@ -4,5 +4,5 @@ import Homepage from "./index";
 
 it("renders api message", () => {
   render(<Homepage />);
-  expect(screen.getByText("/api/recipes/popular")).toBeInTheDocument();
+  expect(screen.getByText("Popular cocktails")).toBeInTheDocument();
 });

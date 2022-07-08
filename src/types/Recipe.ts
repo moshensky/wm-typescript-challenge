@@ -5,6 +5,6 @@ export type Recipe = {
   glass: string;
   category: string;
   ingredients: Ingredient[];
-  garnish: string;
+  garnish?: string;
   preparation: string;
 };

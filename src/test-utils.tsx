@@ -42,7 +42,7 @@ const viewportWidth: { [Property in Viewport]: number } = {
 };
 
 export function withViewport(
-  comp: ComponentStory<() => JSX.Element>,
+  comp: ComponentStory<any>,
   viewport: Viewport = "mobile1"
 ): void {
   // eslint-disable-next-line no-param-reassign

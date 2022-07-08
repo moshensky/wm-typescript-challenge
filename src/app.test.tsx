@@ -7,6 +7,6 @@ test("renders lazy component", async () => {
   mockMatchMedia();
   render(<App />);
 
-  const textToMatch = await screen.findByText(/You can use the api endpoint/);
+  const textToMatch = await screen.findByText(/Popular cocktails/);
   expect(textToMatch).toBeInTheDocument();
 });

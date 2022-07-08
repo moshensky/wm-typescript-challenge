@@ -8,13 +8,15 @@ type Props = {
   recipe: Recipe;
 };
 
-const formatAmountIngredient = ({
+export const formatAmountIngredient = ({
   unit,
   amount,
   ingredient,
-}: AmountIngredient): string => `${amount} ${unit} ${ingredient}`;
+  label,
+}: AmountIngredient): string =>
+  `${amount} ${unit} ${ingredient}${label ? ` (${label})` : ""}`;
 
-const isSpecialIngredient = (x: Ingredient): x is SpecialIngredient =>
+export const isSpecialIngredient = (x: Ingredient): x is SpecialIngredient =>
   "special" in x;
 
 export const Card = ({
@@ -41,8 +43,12 @@ export const Card = ({
         <h3 className="text-lg font-bold">Preparation</h3>
         <div className="text-sm">{preparation}</div>
 
-        <h3 className="text-lg font-bold">Garnish</h3>
-        <div className="text-sm">{garnish}</div>
+        {garnish && (
+          <>
+            <h3 className="text-lg font-bold">Garnish</h3>
+            <div className="text-sm">{garnish}</div>
+          </>
+        )}
       </div>
     </div>
   );

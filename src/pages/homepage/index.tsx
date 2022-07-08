@@ -25,6 +25,9 @@ const spritzVeneziano: Recipe = {
     "Build into an old-fashioned glass filled with ice. Top with a splash of soda water.",
 };
 
+// fetch(`/api/recipes/popular`)
+//   .then((response) => response.json())
+//   .then(console.log);
 // TODO: REMOVE THIS CODE AND IMPLEMENT A NICE GRID!
 const Homepage = () => {
   return (

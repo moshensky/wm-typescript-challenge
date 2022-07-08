@@ -1,29 +1,14 @@
-import { WarningMessage } from "components";
+import { useParams } from "react-router-dom";
+import { Page } from "./Page";
+import { PageWithoutRecipes } from "./PageWithoutRecipes";
 
-// TODO: REMOVE THIS CODE AND IMPLEMENT A NICE GRID!
 export const Recipes = () => {
-  // fetch(`/api/recipes/all?${new URLSearchParams({ offset: "70" })}`)
-  //   .then((response) => response.json())
-  //   .then(console.log);
+  const routeParams = useParams();
+  const page = parseInt(routeParams.page || "1", 10);
 
-  // fetch(`/api/recipes/popular`)
-  //   .then((response) => response.json())
-  //   .then(console.log);
-
-  return (
-    <WarningMessage
-      title={
-        <>
-          👷🏻‍♂️ Please remove this block and show <strong>all the recipes</strong>{" "}
-          here, paged by 10.
-        </>
-      }
-      message={
-        <>
-          <span>You can use the api endpoint </span>
-          <code className="text-sm font-light">/api/recipes/all</code>.
-        </>
-      }
-    />
+  return isNaN(page) ? (
+    <PageWithoutRecipes />
+  ) : (
+    <Page page={page < 1 ? 1 : page} itemsPerPage={8} />
   );
 };

@@ -1,8 +1,13 @@
 import { render, screen } from "@testing-library/react";
+import { MemoryRouter } from "react-router-dom";
+import { ROUTES } from "router/routes";
+import { Recipes } from "./Recipes";
 
-import Homepage from "./index";
-
-it("renders api message", () => {
-  render(<Homepage />);
-  expect(screen.getByText("/api/recipes/all")).toBeInTheDocument();
+it("should render", () => {
+  render(
+    <MemoryRouter initialEntries={[`${ROUTES.RECIPES}`]}>
+      <Recipes />
+    </MemoryRouter>
+  );
+  expect(screen.getByText(/Loading data/)).toBeInTheDocument();
 });

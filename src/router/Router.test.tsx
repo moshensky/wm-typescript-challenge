@@ -24,7 +24,7 @@ test("full app rendering/navigating", async () => {
   );
 
   // Check if the homepage api text is visible
-  expect(await screen.findByText("/api/recipes/popular")).toBeInTheDocument();
+  expect(await screen.findByText(/Popular cocktails/)).toBeInTheDocument();
 
   // Check on the recipes link in the navbar
   await user.click(await screen.findByTestId(/navbar-link--recipes/));

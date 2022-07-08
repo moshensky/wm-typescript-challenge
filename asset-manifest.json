@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/wm-typescript-challenge/static/css/main.ec10b39b.css",
+    "main.js": "/wm-typescript-challenge/static/js/main.3b4e9110.js",
+    "static/js/293.e77ad1e5.chunk.js": "/wm-typescript-challenge/static/js/293.e77ad1e5.chunk.js",
+    "static/js/87.5b82367e.chunk.js": "/wm-typescript-challenge/static/js/87.5b82367e.chunk.js",
+    "static/js/309.cf763ebe.chunk.js": "/wm-typescript-challenge/static/js/309.cf763ebe.chunk.js",
+    "static/js/692.b640b6fa.chunk.js": "/wm-typescript-challenge/static/js/692.b640b6fa.chunk.js",
+    "static/js/509.9da2377b.chunk.js": "/wm-typescript-challenge/static/js/509.9da2377b.chunk.js",
+    "static/media/cat.svg": "/wm-typescript-challenge/static/media/cat.7a4ce3d6f8d7a7bbe5b7b6636b311ac8.svg",
+    "index.html": "/wm-typescript-challenge/index.html",
+    "main.ec10b39b.css.map": "/wm-typescript-challenge/static/css/main.ec10b39b.css.map",
+    "main.3b4e9110.js.map": "/wm-typescript-challenge/static/js/main.3b4e9110.js.map",
+    "293.e77ad1e5.chunk.js.map": "/wm-typescript-challenge/static/js/293.e77ad1e5.chunk.js.map",
+    "87.5b82367e.chunk.js.map": "/wm-typescript-challenge/static/js/87.5b82367e.chunk.js.map",
+    "309.cf763ebe.chunk.js.map": "/wm-typescript-challenge/static/js/309.cf763ebe.chunk.js.map",
+    "692.b640b6fa.chunk.js.map": "/wm-typescript-challenge/static/js/692.b640b6fa.chunk.js.map",
+    "509.9da2377b.chunk.js.map": "/wm-typescript-challenge/static/js/509.9da2377b.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ec10b39b.css",
+    "static/js/main.3b4e9110.js"
+  ]
+}

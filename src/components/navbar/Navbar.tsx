@@ -1,6 +1,8 @@
+import cx from "clsx";
 import { Link, NavLink } from "react-router-dom";
 import { ROUTES } from "router/routes";
 import { HamburgerButton } from "components/hamburger-button";
+import { useState } from "react";
 import { Logo } from "../logo";
 import { ColorThemeToggle } from "../color-theme-toggle/ColorThemeToggle";
 
@@ -22,6 +24,8 @@ const menuItems: ReadonlyArray<MenuItem> = [
 ];
 
 export const Navbar = () => {
+  const [isExpanded, setIsExpanded] = useState(false);
+
   return (
     <nav className="py-6 px-2 dark:bg-gray-900 sm:px-4 md:pt-12">
       <div className="container mx-auto flex flex-wrap items-center justify-between">
@@ -31,8 +35,17 @@ export const Navbar = () => {
         </Link>
 
         <ColorThemeToggle className="mr-6" />
-        <HamburgerButton className="md:hidden" />
-        <div className="hidden w-full md:block md:w-auto" id="mobile-menu">
+        <HamburgerButton
+          className="md:hidden"
+          isExpanded={isExpanded}
+          onClick={() => setIsExpanded(!isExpanded)}
+        />
+        <div
+          className={cx("w-full md:block md:w-auto", {
+            hidden: !isExpanded,
+          })}
+          id="mobile-menu"
+        >
           <ul className="mt-4 flex flex-col md:mt-0 md:flex-row md:space-x-8 md:text-sm md:font-medium">
             {menuItems.map((x) => (
               <li key={x.testId}>

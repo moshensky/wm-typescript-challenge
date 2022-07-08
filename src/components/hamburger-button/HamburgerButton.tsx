@@ -2,9 +2,11 @@ import cx from "clsx";
 
 type Props = {
   className?: string;
+  isExpanded: boolean;
+  onClick: () => void;
 };
 
-export const HamburgerButton = ({ className }: Props) => (
+export const HamburgerButton = ({ className, isExpanded, onClick }: Props) => (
   <button
     data-collapse-toggle="mobile-menu"
     type="button"
@@ -13,7 +15,9 @@ export const HamburgerButton = ({ className }: Props) => (
       "ml-3 inline-flex items-center rounded-lg p-2 text-sm text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
     )}
     aria-controls="mobile-menu"
-    aria-expanded="false"
+    aria-expanded={isExpanded}
+    onClick={onClick}
+    title="Open main menu"
   >
     <span className="sr-only">Open main menu</span>
     <svg

@@ -1,6 +1,6 @@
 import { MemoryRouter } from "react-router-dom";
 import { ComponentMeta } from "@storybook/react";
-import { mkSimpleTemplateWithDarkTheme } from "test-utils";
+import { mkSimpleTemplateWithDarkTheme, withViewport } from "test-utils";
 import { Navbar } from "./Navbar";
 
 export default {
@@ -12,3 +12,6 @@ export default {
 const Template = mkSimpleTemplateWithDarkTheme(Navbar);
 
 export const Primary = Template.bind({});
+
+export const SmallMobile = Template.bind({});
+withViewport(SmallMobile);

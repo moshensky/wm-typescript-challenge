@@ -1,11 +1,11 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 import { Card } from "components/card/Card";
 import { mkSimpleTemplate, withViewport } from "test-utils";
-import { Recipe } from "types";
+import { decodeOrThrow, Recipes } from "types";
 import { CardsGrid } from "./CardsGrid";
 import cocktailsRaw from "../../mocks/data/cocktails.json";
 
-const cocktails = cocktailsRaw as Recipe[];
+const cocktails = decodeOrThrow(Recipes)(cocktailsRaw);
 
 const getCards = (count: number) =>
   cocktails.slice(0, count).map((x) => <Card key={x.name} recipe={x} />);

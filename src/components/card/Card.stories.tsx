@@ -39,3 +39,13 @@ export const Primary = Template.bind({});
 Primary.args = {
   recipe: spritzVeneziano,
 };
+
+export const WithoutCategoryGarnishAndPrep = Template.bind({});
+WithoutCategoryGarnishAndPrep.args = {
+  recipe: {
+    ...spritzVeneziano,
+    category: undefined,
+    garnish: undefined,
+    preparation: undefined,
+  },
+};

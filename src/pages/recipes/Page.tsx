@@ -1,3 +1,4 @@
+import { getAllRecipes, GetAllRecipesArgs } from "api";
 import { CardsGrid, Pager, Spinner, WarningMessage } from "components";
 import { Card } from "components/card";
 import { useEffect, useReducer } from "react";
@@ -59,7 +60,7 @@ const mkEmptyWarning = (message: string) => (
 export const getQueryParams = (
   page: number,
   itemsPerPage: number
-): { limit: string; offset: string } => {
+): GetAllRecipesArgs => {
   const limit = itemsPerPage < 1 ? 1 : itemsPerPage;
   const p = page < 1 ? 1 : page;
   return {
@@ -78,39 +79,13 @@ export const Page = ({ page, itemsPerPage }: Props): JSX.Element => {
   const [state, dispatch] = useReducer(pageReducer, { type: "loading" });
   const navigate = useNavigate();
   useEffect(() => {
-    let ignore = false;
     dispatch({ type: "send-request" });
-
-    fetch(
-      `/api/recipes/all?${new URLSearchParams(
-        getQueryParams(page, itemsPerPage)
-      )}`
-    )
-      .then((response) => response.json())
-      // TODO: data validation, i.e. io-ts
-      .then((response) => {
-        if (!ignore) {
-          dispatch({
-            type: "success",
-            data: response.data,
-            totalItems: response.total,
-          });
-        }
-      })
-      // TODO: improve error handling
-      .catch((error) => {
-        if (!ignore) {
-          dispatch({
-            type: "failure",
-            error:
-              typeof error === "string" ? error : "Failed to fetch cocktails.",
-          });
-        }
-      });
-
-    return () => {
-      ignore = true;
-    };
+    return getAllRecipes(
+      getQueryParams(page, itemsPerPage),
+      ({ data, total }) =>
+        dispatch({ type: "success", data, totalItems: total }),
+      (error) => dispatch({ type: "failure", error })
+    );
   }, [page, itemsPerPage]);
 
   switch (state.type) {

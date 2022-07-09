@@ -1,8 +1,8 @@
-import { Recipe } from "types";
+import { decodeOrThrow, Recipes } from "types";
 import { getQueryParams, pageReducer, PageState } from "./Page";
 import cocktailsRaw from "../../mocks/data/cocktails.json";
 
-const cocktails = cocktailsRaw as Recipe[];
+const cocktails = decodeOrThrow(Recipes)(cocktailsRaw);
 
 describe("pageReducer", () => {
   const loadedNoDataState: PageState = { type: "loaded-no-data" };

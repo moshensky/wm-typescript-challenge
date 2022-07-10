@@ -1,5 +1,5 @@
 import { getPopularRecipes } from "api";
-import { CardsGrid, WarningMessage } from "components";
+import { CardsGrid, MainHeader, WarningMessage } from "components";
 import { Card } from "components/card";
 import { useEffect, useState } from "react";
 import { Recipe } from "types";
@@ -16,7 +16,7 @@ export const Popular = () => {
     <WarningMessage title="👷🏻‍♂️ Popular cocktails are gone!" message={error} />
   ) : (
     <>
-      <h1 className="text-primary">Popular cocktails</h1>
+      <MainHeader>Popular cocktails</MainHeader>
       <CardsGrid className="mt-4">
         {data.map((x) => (
           <Card key={x.name} recipe={x} />

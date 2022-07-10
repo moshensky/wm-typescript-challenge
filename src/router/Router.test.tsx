@@ -2,8 +2,7 @@ import { Suspense, ReactElement } from "react";
 import { MemoryRouter } from "react-router-dom";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-
-import { mockMatchMedia } from "hooks/useDarkMode";
+import { mockMatchMedia } from "hooks";
 import { Router } from "./Router";
 
 mockMatchMedia();

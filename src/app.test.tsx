@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import { mockMatchMedia } from "hooks/useDarkMode";
+import { mockMatchMedia } from "hooks";
 
 import App from "./app";
 

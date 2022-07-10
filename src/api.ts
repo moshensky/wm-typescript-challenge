@@ -31,6 +31,13 @@ export const getData =
     };
   };
 
+export const API_ROUTE = {
+  recipes: {
+    popular: "/api/recipes/popular",
+    all: "/api/recipes/all",
+  },
+};
+
 const AllRecipesResponse = t.type({
   total: t.number,
   data: Recipes,
@@ -47,10 +54,10 @@ export const getAllRecipes = (
   onSuccess: (response: AllRecipesResponse) => void,
   onFailure: (error: string) => void
 ): IgnoreRequest =>
-  getData(`/api/recipes/all?${new URLSearchParams(args)}`, AllRecipesResponse)(
-    onSuccess,
-    onFailure
-  );
+  getData(
+    `${API_ROUTE.recipes.all}?${new URLSearchParams(args)}`,
+    AllRecipesResponse
+  )(onSuccess, onFailure);
 
 const PopularRecipesResponse = t.type({
   cocktails: Recipes,
@@ -58,6 +65,6 @@ const PopularRecipesResponse = t.type({
 export type PopularRecipesResponse = t.TypeOf<typeof PopularRecipesResponse>;
 
 export const getPopularRecipes = getData(
-  "/api/recipes/popular",
+  API_ROUTE.recipes.popular,
   PopularRecipesResponse
 );

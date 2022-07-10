@@ -93,7 +93,7 @@ export const Page = ({ page, itemsPerPage }: Props): JSX.Element => {
       return (
         <>
           Loading data...
-          <Spinner />;
+          <Spinner />
         </>
       );
     }
@@ -111,7 +111,7 @@ export const Page = ({ page, itemsPerPage }: Props): JSX.Element => {
       const disable = totalItems <= itemsPerPage;
       return (
         <>
-          <h1>Cocktails</h1>
+          <h1 className="text-primary">Cocktails</h1>
           <Pager
             disabledNext={disable}
             disabledPrevious={disable}

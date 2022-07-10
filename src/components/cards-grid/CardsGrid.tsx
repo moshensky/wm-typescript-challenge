@@ -13,6 +13,7 @@ export const CardsGrid: FC<Props> = ({ className, children, whenEmpty }) => {
   }
   return (
     <div
+      data-testid="cards-grid"
       className={cx(
         className,
         "grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4"

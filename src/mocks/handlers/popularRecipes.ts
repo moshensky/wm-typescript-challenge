@@ -1,9 +1,11 @@
+import { API_ROUTE } from "api";
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { rest } from "msw";
 
 import cocktails from "../data/cocktails.json";
 
 export const popularRecipes = rest.get(
-  "/api/recipes/popular",
+  API_ROUTE.recipes.popular,
   (req, res, { json }) => {
     return res(
       json({

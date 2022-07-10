@@ -2,8 +2,7 @@ import { Suspense, ReactElement } from "react";
 import { MemoryRouter } from "react-router-dom";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-
-import { mockMatchMedia } from "hooks/useDarkMode";
+import { mockMatchMedia } from "hooks";
 import { Router } from "./Router";
 
 mockMatchMedia();
@@ -30,7 +29,8 @@ test("full app rendering/navigating", async () => {
   await user.click(await screen.findByTestId(/navbar-link--recipes/));
 
   // Check if the recipes api text is visible
-  expect(screen.getByText(/Loading data/)).toBeInTheDocument();
+  const cocktail = await screen.findByText(/Vesper/);
+  expect(cocktail).toBeInTheDocument();
 });
 
 test("landing on a bad page", () => {

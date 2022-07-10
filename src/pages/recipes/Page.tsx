@@ -1,5 +1,11 @@
 import { getAllRecipes, GetAllRecipesArgs } from "api";
-import { CardsGrid, Pager, Spinner, WarningMessage } from "components";
+import {
+  CardsGrid,
+  MainHeader,
+  Pager,
+  Spinner,
+  WarningMessage,
+} from "components";
 import { Card } from "components/card";
 import { useEffect, useReducer } from "react";
 import { useNavigate } from "react-router-dom";
@@ -93,7 +99,7 @@ export const Page = ({ page, itemsPerPage }: Props): JSX.Element => {
       return (
         <>
           Loading data...
-          <Spinner />;
+          <Spinner />
         </>
       );
     }
@@ -111,7 +117,7 @@ export const Page = ({ page, itemsPerPage }: Props): JSX.Element => {
       const disable = totalItems <= itemsPerPage;
       return (
         <>
-          <h1>Cocktails</h1>
+          <MainHeader>Cocktails</MainHeader>
           <Pager
             disabledNext={disable}
             disabledPrevious={disable}

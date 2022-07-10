@@ -1,7 +1,8 @@
 import cx from "clsx";
 import { Link, NavLink } from "react-router-dom";
 import { ROUTES } from "router/routes";
-import { useState } from "react";
+import { useCallback, useRef, useState } from "react";
+import { useOnClickOutside } from "hooks";
 import { HamburgerButton } from "../hamburger-button/HamburgerButton";
 import { Logo } from "../logo";
 import { ColorThemeToggle } from "../color-theme-toggle";
@@ -25,26 +26,33 @@ const menuItems: ReadonlyArray<MenuItem> = [
 
 export const Navbar = () => {
   const [isExpanded, setIsExpanded] = useState(false);
+  const refBtn = useRef<HTMLButtonElement>(null);
+  const refDiv = useRef<HTMLDivElement>(null);
+  const handleCloseMenu = useCallback(
+    () => isExpanded && setIsExpanded(false),
+    [isExpanded, setIsExpanded]
+  );
+  useOnClickOutside(handleCloseMenu, isExpanded, refBtn, refDiv);
 
   return (
-    <nav className="py-6 px-2 dark:bg-gray-900 sm:px-4 md:pt-12">
+    <nav className="py-6 px-2 sm:px-4 md:pt-12">
       <div className="container mx-auto flex flex-wrap items-center justify-between">
         <Link to={ROUTES.HOME} className="mr-6 flex flex-1">
           <Logo />
           <span className="sr-only">Wieni</span>
         </Link>
-
         <ColorThemeToggle className="mr-6" />
         <HamburgerButton
+          ref={refBtn}
           className="md:hidden"
           isExpanded={isExpanded}
           onClick={() => setIsExpanded(!isExpanded)}
         />
         <div
+          ref={refDiv}
           className={cx("w-full md:block md:w-auto", {
             hidden: !isExpanded,
           })}
-          id="mobile-menu"
         >
           <ul className="mt-4 flex flex-col md:mt-0 md:flex-row md:space-x-8 md:text-sm md:font-medium">
             {menuItems.map((x) => (
@@ -52,6 +60,7 @@ export const Navbar = () => {
                 <NavLink
                   data-testid={x.testId}
                   to={x.route}
+                  onClick={handleCloseMenu}
                   className={({ isActive }) =>
                     isActive ? navbarStyles.active : navbarStyles.default
                   }

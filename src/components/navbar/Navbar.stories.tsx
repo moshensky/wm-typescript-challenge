@@ -1,5 +1,5 @@
-import { MemoryRouter } from "react-router-dom";
 import { ComponentMeta } from "@storybook/react";
+import { withRouter } from "storybook-addon-react-router-v6";
 import { screen, userEvent, within } from "@storybook/testing-library";
 import { mkSimpleTemplateWithDarkTheme, withViewport } from "test-utils";
 import { Navbar } from "./Navbar";
@@ -7,7 +7,7 @@ import { Navbar } from "./Navbar";
 export default {
   title: "components/Navbar",
   component: Navbar,
-  decorators: [(story) => <MemoryRouter>{story()}</MemoryRouter>],
+  decorators: [withRouter],
 } as ComponentMeta<typeof Navbar>;
 
 const Template = mkSimpleTemplateWithDarkTheme(Navbar);

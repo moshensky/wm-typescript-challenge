@@ -2,6 +2,7 @@
   "name": "wieni-ts-developer",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://moshensky.github.io/wm-typescript-challenge",
   "dependencies": {
     "clsx": "^1.1.1",
     "fp-ts": "^2.12.1",
